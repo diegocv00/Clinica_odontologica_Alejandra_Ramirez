@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { products } from "../data/products";
 import AddToCart from "../components/AddToCart.astro";
@@ -20,7 +21,7 @@ import AddToCart from "../components/AddToCart.astro";
                             style={`transition-delay: ${delay}s;`}
                         >
                             <div class="product-image-container">
-                                <img
+                                <Image
                                     src={product.image}
                                     alt={product.name}
                                     class="product-image"
@@ -37,7 +38,7 @@ import AddToCart from "../components/AddToCart.astro";
                                 name={product.name}
                                 price={product.price}
                                 priceValue={product.amountInCents / 100}
-                                image={product.image}
+                                image={product.image.src}
                             />
                         </div>
                     );

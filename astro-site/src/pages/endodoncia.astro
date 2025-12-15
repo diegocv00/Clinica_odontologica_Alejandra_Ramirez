@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
+import { Image } from "astro:assets";
+import endodonciaAfter from "../assets/images/treatments/endodoncia/endodoncia-after.png";
+import endodonciaBefore from "../assets/images/treatments/endodoncia/endodoncia-before.png";
 ---
 
 <Layout title="Endodoncia - Clínica Odontológica">
@@ -8,22 +11,21 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
         <h2 class="section-title">ENDODONCIA</h2>
         <div class="about-container">
             <div class="about-text animate-hidden slide-left">
-                <h3>Salva tus dientes naturales</h3>
+                <h3>Salva tus dientes</h3>
                 <p>
-                    La endodoncia, conocida comúnmente como "tratamiento de
-                    conducto", es el procedimiento que utilizan los odontólogos
-                    para eliminar -en parte o en su totalidad- la pulpa del
-                    diente y sellar el conducto pulpar.
+                    La endodoncia o tratamiento de conducto es el procedimiento
+                    que nos permite conservar tus dientes naturales cuando la
+                    pulpa (nervio) está afectada por caries profundas o
+                    traumatismos.
                 </p>
                 <p>
-                    Este tratamiento es necesario cuando la pulpa está inflamada
-                    o infectada debido a caries profunda, procedimientos
-                    dentales repetidos, o una grieta o astilla en el diente.
+                    Utilizamos tecnología mecanizada para tratamientos más
+                    rápidos, seguros y efectivos.
                 </p>
             </div>
             <div class="about-image animate-hidden slide-right">
-                <img
-                    src="/images/treatments/endodoncia/endodoncia-after.png"
+                <Image
+                    src={endodonciaAfter}
                     alt="Endodoncia Resultado"
                     style="box-shadow: none; border-radius: 10px;"
                 />
@@ -32,8 +34,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
 
         <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
         <ComparisonSlider
-            beforeImage="/images/treatments/endodoncia/endodoncia-before.png"
-            afterImage="/images/treatments/endodoncia/endodoncia-after.png"
+            beforeImage={endodonciaBefore}
+            afterImage={endodonciaAfter}
             beforeLabel="Antes"
             afterLabel="Después"
         />

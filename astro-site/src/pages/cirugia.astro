@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
+import { Image } from "astro:assets";
+import cirugiaAfter from "../assets/images/treatments/cirugia/cirugia-after.png";
+import cirugiaBefore from "../assets/images/treatments/cirugia/cirugia-before.png";
 ---
 
 <Layout title="Cirugía Maxilofacial - Clínica Odontológica">
@@ -8,21 +11,21 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
         <h2 class="section-title">CIRUGÍA MAXILOFACIAL</h2>
         <div class="about-container">
             <div class="about-text animate-hidden slide-left">
-                <h3>Expertos en cirugía oral</h3>
+                <h3>Soluciones quirúrgicas especializadas</h3>
                 <p>
-                    La cirugía maxilofacial abarca el diagnóstico y tratamiento
-                    quirúrgico de enfermedades, lesiones y defectos que
-                    involucran los aspectos funcionales y estéticos de los
-                    tejidos duros y blandos de la región bucal y maxilofacial.
+                    Realizamos procedimientos quirúrgicos complejos para tratar
+                    problemas funcionales y estéticos de la boca, mandíbula y
+                    cuello.
                 </p>
                 <p>
-                    Realizamos extracciones de cordales, implantes dentales y
-                    cirugía ortognática con la máxima seguridad y tecnología.
+                    Desde extracciones de cordales hasta correcciones óseas,
+                    contamos con el equipo y la experiencia para garantizar tu
+                    seguridad y recuperación.
                 </p>
             </div>
             <div class="about-image animate-hidden slide-right">
-                <img
-                    src="/images/treatments/cirugia/cirugia-after.png"
+                <Image
+                    src={cirugiaAfter}
                     alt="Cirugía Resultado"
                     style="box-shadow: none; border-radius: 10px;"
                 />
@@ -31,8 +34,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
 
         <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
         <ComparisonSlider
-            beforeImage="/images/treatments/cirugia/cirugia-before.png"
-            afterImage="/images/treatments/cirugia/cirugia-after.png"
+            beforeImage={cirugiaBefore}
+            afterImage={cirugiaAfter}
             beforeLabel="Antes"
             afterLabel="Después"
         />

@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
+import { Image } from "astro:assets";
+import mandibulaResult from "../assets/images/treatments/mandibula/mandibula-result.png";
+import mandibulaBefore from "../assets/images/treatments/mandibula/mandibula-before.png";
 ---
 
 <Layout title="Bioplastia Mandibular - Clínica Odontológica">
@@ -21,8 +24,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
                 </p>
             </div>
             <div class="about-image animate-hidden slide-right">
-                <img
-                    src="/images/treatments/mandibula/mandibula-result.png"
+                <Image
+                    src={mandibulaResult}
                     alt="Mandíbula Resultado"
                     style="box-shadow: none; border-radius: 10px;"
                 />
@@ -31,8 +34,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
 
         <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
         <ComparisonSlider
-            beforeImage="/images/treatments/mandibula/mandibula-before.png"
-            afterImage="/images/treatments/mandibula/mandibula-result.png"
+            beforeImage={mandibulaBefore}
+            afterImage={mandibulaResult}
             beforeLabel="Antes"
             afterLabel="Después"
         />

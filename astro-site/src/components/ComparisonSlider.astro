@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
-  beforeImage: string;
-  afterImage: string;
+  beforeImage: ImageMetadata;
+  afterImage: ImageMetadata;
   beforeLabel?: string;
   afterLabel?: string;
 }
@@ -15,8 +17,8 @@ const {
 ---
 
 <div class="comparison-container">
-  <img src={beforeImage} class="comparison-image end-image" alt="Antes" />
-  <img src={afterImage} class="comparison-image start-image" alt="Después" />
+  <Image src={beforeImage} class="comparison-image end-image" alt="Antes" />
+  <Image src={afterImage} class="comparison-image start-image" alt="Después" />
   <span class="label label-before">{beforeLabel}</span>
   <span class="label label-after">{afterLabel}</span>
   <div class="slider-handle"></div>

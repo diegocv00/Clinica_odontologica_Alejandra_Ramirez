@@ -12,7 +12,7 @@
 .checkout-wrapper {
     min-height: 80vh;
     padding: 100px 20px 50px;
-    background: url('/images/bg-pattern.png');
+    background: url('../assets/images/bg-pattern.png');
     /* If available, else just color */
     background-size: cover;
 }

@@ -1,26 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import carousel1 from "../assets/images/carousel/carousel-1.png";
+import carousel2 from "../assets/images/carousel/carousel-2.png";
+import carousel3 from "../assets/images/carousel/carousel-3.png";
+import doctorPortrait from "../assets/images/general/doctor-portrait.png";
 ---
 
 <Layout title="Clínica Odontológica">
 	<section class="hero-carousel">
 		<div class="carousel-container">
 			<div class="carousel-slide active">
-				<img
-					src="/images/carousel/carousel-1.png"
+				<Image
+					src={carousel1}
 					alt="Interior Clínica"
+					fetchpriority="high"
+					loading="eager"
 				/>
 			</div>
 			<div class="carousel-slide">
-				<img
-					src="/images/carousel/carousel-2.png"
-					alt="Paciente Feliz"
-				/>
+				<Image src={carousel2} alt="Paciente Feliz" loading="lazy" />
 			</div>
 			<div class="carousel-slide">
-				<img
-					src="/images/carousel/carousel-3.png"
+				<Image
+					src={carousel3}
 					alt="Tratamiento Dental"
+					loading="lazy"
 				/>
 			</div>
 			<button class="carousel-btn prev" onclick="moveSlide(-1)"
@@ -133,13 +138,10 @@ import Layout from "../layouts/Layout.astro";
 				</p>
 			</div>
 			<div class="about-image animate-hidden slide-right">
-				<img
-					src="/images/general/doctor-portrait.png"
-					alt="Dra. Alejandra Ramirez"
-				/>
+				<Image src={doctorPortrait} alt="Dra. Alejandra Ramirez" />
 			</div>
 		</div>
 	</section>
 
-	<script is:inline src="/slides.js"></script>
+	<script is:inline src="/slides.js" defer></script>
 </Layout>

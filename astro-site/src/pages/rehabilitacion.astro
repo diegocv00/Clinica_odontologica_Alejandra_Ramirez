@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
+import { Image } from "astro:assets";
+import carousel2 from "../assets/images/carousel/carousel-2.png";
+import rehabBefore from "../assets/images/treatments/rehabilitacion/rehab-before.png";
 ---
 
 <Layout title="Rehabilitación Oral - Clínica Odontológica">
@@ -23,8 +26,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
                 </p>
             </div>
             <div class="about-image animate-hidden slide-right">
-                <img
-                    src="/images/carousel/carousel-2.png"
+                <Image
+                    src={carousel2}
                     alt="Rehabilitación Resultado"
                     style="box-shadow: none; border-radius: 10px;"
                 />
@@ -35,8 +38,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
             TRANSFORMACIONES
         </h3>
         <ComparisonSlider
-            beforeImage="/images/treatments/rehabilitacion/rehab-before.png"
-            afterImage="/images/carousel/carousel-2.png"
+            beforeImage={rehabBefore}
+            afterImage={carousel2}
             beforeLabel="Antes"
             afterLabel="Después"
         />

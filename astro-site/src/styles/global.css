@@ -177,8 +177,8 @@ header {
 
 .carousel-slide img {
     width: 100%;
-    height: auto;
-    max-height: 500px;
+    height: 400px;
+    /* Reduced height */
     object-fit: cover;
     display: block;
 }
@@ -407,6 +407,12 @@ header {
 
 .about-image img {
     max-width: 100%;
+    max-height: 400px;
+    /* Added height limit */
+    width: auto;
+    /* Allow width to shrink */
+    object-fit: contain;
+    /* Ensure image isn't cropped weirdly if container is small */
     border-radius: 5px;
     box-shadow: 20px 20px 0px #f4f4f4;
 }
@@ -636,7 +642,8 @@ header {
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 400px;
+    height: 350px;
+    /* Reduced height */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 5px;

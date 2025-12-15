@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ComparisonSlider from "../components/ComparisonSlider.astro";
+import { Image } from "astro:assets";
+import ortodonciaAfter from "../assets/images/treatments/ortodoncia/ortodoncia-after.png";
+import ortodonciaBefore from "../assets/images/treatments/ortodoncia/ortodoncia-before.png";
 ---
 
 <Layout title="Ortodoncia - Clínica Odontológica">
@@ -24,8 +27,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
                 </ul>
             </div>
             <div class="about-image animate-hidden slide-right">
-                <img
-                    src="/images/treatments/ortodoncia/ortodoncia-after.png"
+                <Image
+                    src={ortodonciaAfter}
                     alt="Ortodoncia Resultado"
                     style="box-shadow: none; border-radius: 10px;"
                 />
@@ -34,8 +37,8 @@ import ComparisonSlider from "../components/ComparisonSlider.astro";
 
         <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
         <ComparisonSlider
-            beforeImage="/images/treatments/ortodoncia/ortodoncia-before.png"
-            afterImage="/images/treatments/ortodoncia/ortodoncia-after.png"
+            beforeImage={ortodonciaBefore}
+            afterImage={ortodonciaAfter}
             beforeLabel="Antes"
             afterLabel="Después"
         />
