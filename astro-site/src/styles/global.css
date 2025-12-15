@@ -1,15 +1,5 @@
 /* --- Estilos Generales --- */
-@font-face {
-    font-family: 'Font Awesome 5 Free';
-    font-display: swap;
-    src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format('woff2');
-}
 
-@font-face {
-    font-family: 'Font Awesome 5 Brands';
-    font-display: swap;
-    src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2) format('woff2');
-}
 
 body {
     font-family: 'Montserrat', sans-serif;

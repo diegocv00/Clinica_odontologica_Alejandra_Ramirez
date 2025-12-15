@@ -26,16 +26,13 @@ const { title } = Astro.props;
 
 		<!-- Font Awesome - Deferred -->
 		<link
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			href="/fontawesome.css"
 			rel="stylesheet"
 			media="print"
 			onload="this.media='all'"
 		/>
 		<noscript>
-			<link
-				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-				rel="stylesheet"
-			/>
+			<link href="/fontawesome.css" rel="stylesheet" />
 		</noscript>
 
 		<!-- Google Fonts -->
@@ -95,6 +92,7 @@ const { title } = Astro.props;
 						src={logo}
 						alt="Logo Clínica"
 						class="logo"
+						width={500}
 						loading="eager"
 					/>
 				</a>

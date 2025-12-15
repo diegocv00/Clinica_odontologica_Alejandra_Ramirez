@@ -14,17 +14,27 @@ import doctorPortrait from "../assets/images/general/doctor-portrait.png";
 				<Image
 					src={carousel1}
 					alt="Interior Clínica"
+					widths={[240, 540, 720, carousel1.width]}
+					sizes={`(max-width: 360px) 240px, (max-width: 540px) 540px, (max-width: 720px) 720px, ${carousel1.width}px`}
 					fetchpriority="high"
 					loading="eager"
 				/>
 			</div>
 			<div class="carousel-slide">
-				<Image src={carousel2} alt="Paciente Feliz" loading="lazy" />
+				<Image
+					src={carousel2}
+					alt="Paciente Feliz"
+					widths={[240, 540, 720, carousel2.width]}
+					sizes={`(max-width: 360px) 240px, (max-width: 540px) 540px, (max-width: 720px) 720px, ${carousel2.width}px`}
+					loading="lazy"
+				/>
 			</div>
 			<div class="carousel-slide">
 				<Image
 					src={carousel3}
 					alt="Tratamiento Dental"
+					widths={[240, 540, 720, carousel3.width]}
+					sizes={`(max-width: 360px) 240px, (max-width: 540px) 540px, (max-width: 720px) 720px, ${carousel3.width}px`}
 					loading="lazy"
 				/>
 			</div>
@@ -138,7 +148,11 @@ import doctorPortrait from "../assets/images/general/doctor-portrait.png";
 				</p>
 			</div>
 			<div class="about-image animate-hidden slide-right">
-				<Image src={doctorPortrait} alt="Dra. Alejandra Ramirez" />
+				<Image
+					src={doctorPortrait}
+					alt="Dra. Alejandra Ramirez"
+					width={800}
+				/>
 			</div>
 		</div>
 	</section>
