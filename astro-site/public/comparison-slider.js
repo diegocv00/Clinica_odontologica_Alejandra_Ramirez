@@ -39,15 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         function handleMove(e, container) {
-            const rect = container.getBoundingClientRect();
-            let x = e.clientX - rect.left;
+            // Use requestAnimationFrame to avoid forced reflows
+            window.requestAnimationFrame(() => {
+                const rect = container.getBoundingClientRect();
+                let x = e.clientX - rect.left;
 
-            // Constrain
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
+                // Constrain
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
 
-            const percentage = (x / rect.width) * 100;
-            updateSlider(container, percentage);
+                const percentage = (x / rect.width) * 100;
+                updateSlider(container, percentage);
+            });
         }
 
         function updateSlider(container, percentage) {
