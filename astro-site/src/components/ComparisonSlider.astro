@@ -1,0 +1,31 @@
+---
+interface Props {
+  beforeImage: string;
+  afterImage: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+}
+
+const {
+  beforeImage,
+  afterImage,
+  beforeLabel = "Antes",
+  afterLabel = "Después",
+} = Astro.props;
+---
+
+<div class="comparison-container">
+  <img src={beforeImage} class="comparison-image end-image" alt="Antes" />
+  <img src={afterImage} class="comparison-image start-image" alt="Después" />
+  <span class="label label-before">{beforeLabel}</span>
+  <span class="label label-after">{afterLabel}</span>
+  <div class="slider-handle"></div>
+</div>
+
+<script>
+  // Logic from comparison-slider.js adapted for Astro component self-initialization or global
+  // Since we have comparison-slider.js globally, we can rely on it if it runs on DOMContentLoaded.
+  // However, in Astro ViewTransitions (if enabled later), we might need re-init.
+  // For now, relying on the global script imported in Layout is fine, BUT
+  // let's ensure the script provided handles multiple sliders correctly (it does).
+</script>

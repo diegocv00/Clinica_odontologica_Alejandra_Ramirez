@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Bichectomía - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">BICHECTOMÍA</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Rostro más perfilado</h3>
+                <p>
+                    La bichectomía es un procedimiento quirúrgico estético que
+                    consiste en la extracción de las bolas de Bichat, que son
+                    cúmulos de grasa ubicados en las mejillas. Al retirarlas, se
+                    logra un efecto de adelgazamiento del rostro, resaltando los
+                    pómulos y definiendo el contorno facial.
+                </p>
+                <p>
+                    Es una cirugía mínimamente invasiva, con una recuperación
+                    rápida y resultados permanentes.
+                </p>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/treatments/bichectomia/bichectomia-after.png"
+                    alt="Bichectomía Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/bichectomia/bichectomia-before.png"
+            afterImage="/images/treatments/bichectomia/bichectomia-after.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>

@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Diseño de Sonrisa - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">DISEÑO DE SONRISA</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Tu sonrisa soñada hecha realidad</h3>
+                <p>
+                    El diseño de sonrisa es un conjunto de procedimientos
+                    odontológicos que permiten cambiar el color, tamaño, forma y
+                    posición de los dientes, teniendo en cuenta aspectos
+                    importantes como la forma del rostro, la textura de la piel
+                    y el color de los dientes, con el fin de brindar armonía y
+                    estética.
+                </p>
+                <p>
+                    Usamos tecnología digital para planificar tu sonrisa ideal
+                    antes de empezar, con carillas de alta estética (Lentes
+                    Cerámicos o Resina).
+                </p>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/treatments/diseno_sonrisa/diseno-after.png"
+                    alt="Diseño de Sonrisa Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">
+            RESULTADOS REALES
+        </h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/diseno_sonrisa/diseno-before.png"
+            afterImage="/images/treatments/diseno_sonrisa/diseno-after.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>

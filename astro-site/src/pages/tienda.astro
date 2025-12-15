@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { products } from "../data/products";
+import AddToCart from "../components/AddToCart.astro";
+---
+
+<Layout title="Tienda - Clínica Odontológica">
+    <section class="products-section">
+        <h2 class="section-title">TIENDA DE PRODUCTOS</h2>
+        <div class="products-grid">
+            {
+                products.map((product, index) => {
+                    // Generar referencia única para cada producto
+                    const reference = `${product.id}-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+                    const delay = index * 0.2; // 0s, 0.2s, 0.4s...
+
+                    return (
+                        <div
+                            class="product-card animate-hidden fade-up"
+                            style={`transition-delay: ${delay}s;`}
+                        >
+                            <div class="product-image-container">
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    class="product-image"
+                                />
+                            </div>
+                            <h3>{product.name}</h3>
+                            <p class="product-description">
+                                {product.description}
+                            </p>
+                            <p class="product-price">{product.price}</p>
+
+                            <AddToCart
+                                id={product.id}
+                                name={product.name}
+                                price={product.price}
+                                priceValue={product.amountInCents / 100}
+                                image={product.image}
+                            />
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </section>
+</Layout>

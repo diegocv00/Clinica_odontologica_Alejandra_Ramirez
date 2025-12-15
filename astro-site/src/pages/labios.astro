@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Diseño de Labios - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">DISEÑO DE LABIOS</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Volumen y Hidratación</h3>
+                <p>
+                    El diseño de labios con ácido hialurónico permite hidratar,
+                    perfilar y dar volumen a los labios de manera natural y
+                    estética. Se busca siempre mantener la armonía con el resto
+                    del rostro, corrigiendo asimetrías y mejorando la
+                    proyección.
+                </p>
+                <p>
+                    Resultados inmediatos y reversibles con productos de alta
+                    calidad.
+                </p>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/treatments/labios/labios-result.png"
+                    alt="Labios Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/labios/labios-before.png"
+            afterImage="/images/treatments/labios/labios-result.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>

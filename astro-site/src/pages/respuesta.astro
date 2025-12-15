@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Estado del Pago - Clínica Odontológica">
+    <section class="response-section">
+        <div class="response-card" id="response-card">
+            <div class="loader" id="loader"></div>
+            <div id="content" style="display: none;">
+                <i class="fas" id="status-icon"></i>
+                <h2 id="status-title">Verificando pago...</h2>
+                <p id="status-message">
+                    Por favor espera un momento mientras confirmamos tu
+                    transacción.
+                </p>
+                <div class="transaction-details" id="details">
+                    <p><strong>Referencia:</strong> <span id="ref"></span></p>
+                    <p><strong>Total:</strong> <span id="total"></span></p>
+                </div>
+                <a href="/tienda" class="btn-gold">Volver a la Tienda</a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    // Obtener los parámetros de la URL enviados por Wompi
+    const params = new URLSearchParams(window.location.search);
+    const transactionId = params.get("id");
+
+    const loader = document.getElementById("loader");
+    const content = document.getElementById("content");
+    const icon = document.getElementById("status-icon");
+    const title = document.getElementById("status-title");
+    const message = document.getElementById("status-message");
+    const ref = document.getElementById("ref");
+    const total = document.getElementById("total");
+
+    if (transactionId) {
+        // Consultar el estado de la transacción a Wompi
+        fetch(`https://production.wompi.co/v1/transactions/${transactionId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                const transaction = data.data;
+                const status = transaction.status;
+
+                loader.style.display = "none";
+                content.style.display = "block";
+
+                ref.innerText = transaction.reference;
+
+                // Formatear precio
+                const price = transaction.amount_in_cents / 100;
+                total.innerText = new Intl.NumberFormat("es-CO", {
+                    style: "currency",
+                    currency: "COP",
+                }).format(price);
+
+                if (status === "APPROVED") {
+                    icon.className = "fas fa-check-circle success";
+                    title.innerText = "¡Pago Exitoso!";
+                    message.innerText =
+                        "Gracias por tu compra. Te contactaremos pronto para confirmar el envío.";
+                } else if (status === "DECLINED") {
+                    icon.className = "fas fa-times-circle error";
+                    title.innerText = "Pago Rechazado";
+                    message.innerText =
+                        "Lo sentimos, tu transacción ha sido rechazada. Por favor intenta con otro medio de pago.";
+                } else if (status === "VOIDED") {
+                    icon.className = "fas fa-ban error";
+                    title.innerText = "Pago Anulado";
+                    message.innerText = "La transacción ha sido anulada.";
+                } else if (status === "ERROR") {
+                    icon.className = "fas fa-exclamation-circle error";
+                    title.innerText = "Error en el Pago";
+                    message.innerText =
+                        "Ocurrió un error procesando tu pago. Por favor intenta de nuevo.";
+                } else {
+                    icon.className = "fas fa-question-circle warning";
+                    title.innerText = "Estado Desconocido";
+                    message.innerText = `El estado de tu transacción es: ${status}`;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                loader.style.display = "none";
+                content.style.display = "block";
+                title.innerText = "Error de conexión";
+                message.innerText =
+                    "No pudimos verificar el estado del pago. Por favor contacta a soporte.";
+            });
+    } else {
+        loader.style.display = "none";
+        content.style.display = "block";
+        title.innerText = "No hay transacción seleeccionada";
+        message.innerText = "Regresa a la tienda para realizar una compra.";
+    }
+</script>
+
+<style>
+    .response-section {
+        padding: 100px 20px;
+        min-height: 60vh;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+    }
+
+    .response-card {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .loader {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #bfa05f;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #status-icon {
+        font-size: 80px;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .success {
+        color: #28a745;
+    }
+    .error {
+        color: #dc3545;
+    }
+    .warning {
+        color: #ffc107;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .transaction-details {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .transaction-details p {
+        margin: 5px 0;
+        font-size: 0.9rem;
+    }
+</style>

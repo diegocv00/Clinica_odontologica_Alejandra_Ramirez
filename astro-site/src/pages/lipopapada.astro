@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Lipopapada - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">LIPOPAPADA</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Elimina la grasa localizada</h3>
+                <p>
+                    La liposucción de papada es un procedimiento diseñado para
+                    eliminar el exceso de grasa acumulada debajo del mentón y en
+                    la parte superior del cuello. Este tratamiento mejora
+                    significativamente el perfil y rejuvenece la apariencia
+                    facial.
+                </p>
+                <p>
+                    Utilizamos técnicas seguras para esculpir la zona cervical y
+                    definir el ángulo mandibular.
+                </p>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/treatments/lipopapada/lipopapada-after.png"
+                    alt="Lipopapada Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/lipopapada/lipopapada-before.png"
+            afterImage="/images/treatments/lipopapada/lipopapada-after.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+interface Props {
+    id: string;
+    name: string;
+    price: string;
+    image: string;
+    priceValue: number;
+}
+
+const { id, name, price, image, priceValue } = Astro.props;
+---
+
+<button
+    class="add-to-cart-btn"
+    data-id={id}
+    data-name={name}
+    data-price={priceValue}
+    data-image={image}
+>
+    Añadir al Carrito
+</button>
+
+<style>
+    .add-to-cart-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: var(--secondary-color);
+    }
+</style>
+
+<script>
+    import { addCartItem } from "../store/cartStore";
+
+    const buttons = document.querySelectorAll(".add-to-cart-btn");
+
+    buttons.forEach((btn) => {
+        const button = btn as HTMLButtonElement;
+        button.addEventListener("click", () => {
+            const id = button.getAttribute("data-id");
+            const name = button.getAttribute("data-name");
+            const price = Number(button.getAttribute("data-price"));
+            const image = button.getAttribute("data-image");
+
+            if (id && name && price && image) {
+                addCartItem({ id, name, price, image });
+
+                // Visual feedback
+                const originalText = button.textContent || "";
+                button.textContent = "¡Añadido!";
+                button.style.backgroundColor = "#2ecc71";
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = "";
+                }, 2000);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,164 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+}
+
+import CartIcon from "../components/CartIcon.astro";
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/images/branding/favicon.svg"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- Top Bar -->
+		<div class="top-bar">
+			<div class="top-bar-container">
+				<div class="social-icons-top">
+					<a
+						href="https://www.facebook.com/p/draalejarmayorga-100064686644013/"
+						target="_blank"><i class="fab fa-facebook-f"></i></a
+					>
+					<a
+						href="https://www.instagram.com/clinica.alejandraramirez?igsh=MW80aGhsb2thZmMxag=="
+						target="_blank"><i class="fab fa-instagram"></i></a
+					>
+					<a href="https://wa.me/573223413034" target="_blank"
+						><i class="fab fa-whatsapp"></i></a
+					>
+				</div>
+				<div class="contact-info">
+					<span
+						><i class="fas fa-envelope"></i> contacto@gmail.com</span
+					>
+					<a
+						href="https://www.google.com/maps/place/Dra+.+Alejandra+Ram%C3%ADrez+mayorga/@7.0003808,-73.0580465,18z/data=!4m6!3m5!1s0x8e6847e66d986913:0x91d0b643721d56f5!8m2!3d7.0008414!4d-73.0558149!16s%2Fg%2F11nxqvjd3z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
+						target="_blank"
+					>
+						<i class="fas fa-map-marker-alt"></i> Junín 4, Cl. 5N # 9-04,
+						Piedecuesta
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<header>
+			<div class="logo-container">
+				<a href="/" style="text-decoration:none; color:inherit;">
+					<img
+						src="/images/branding/logo.png"
+						alt="Logo Clínica"
+						class="logo"
+					/>
+				</a>
+			</div>
+			<nav class="navbar">
+				<ul class="nav-links">
+					<li><a href="/">INICIO</a></li>
+					<li class="dropdown">
+						<a href="#">TRATAMIENTOS ODONTOLÓGICOS ▼</a>
+						<ul class="dropdown-content">
+							<li><a href="/ortodoncia">Ortodoncia</a></li>
+							<li><a href="/endodoncia">Endodoncia</a></li>
+							<li>
+								<a href="/rehabilitacion">Rehabilitación Oral</a
+								>
+							</li>
+							<li><a href="/cirugia">Cirugía Maxilofacial</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#">ARMONIZACIÓN OROFACIAL ▼</a>
+						<ul class="dropdown-content">
+							<li><a href="/bichectomia">Bichectomía</a></li>
+							<li><a href="/lipopapada">Lipopapada</a></li>
+							<li><a href="/labios">Diseño de Labios</a></li>
+							<li>
+								<a href="/mandibula">Bioplastia Mandibular</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="/diseno_sonrisa">DISEÑO DE SONRISA</a></li>
+					<li><a href="/tienda">TIENDA</a></li>
+					<li><CartIcon /></li>
+				</ul>
+			</nav>
+		</header>
+	</body>
+</html>
+
+<slot />
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/573223413034" class="float-whatsapp" target="_blank">
+	<i class="fab fa-whatsapp my-float"></i>
+	<div class="whatsapp-tooltip">¡Agenda tu cita!</div>
+</a>
+
+<footer class="site-footer">
+	<div class="footer-container">
+		<div class="footer-col">
+			<h3>Redes Sociales</h3>
+			<div class="social-links-footer">
+				<a
+					href="https://wa.me/573223413034"
+					target="_blank"
+					class="social-link whatsapp"
+				>
+					<i class="fab fa-whatsapp"></i> WhatsApp
+				</a>
+				<a
+					href="https://www.facebook.com/p/draalejarmayorga-100064686644013/"
+					target="_blank"
+					class="social-link facebook"
+				>
+					<i class="fab fa-facebook-f"></i> Facebook
+				</a>
+				<a
+					href="https://www.instagram.com/clinica.alejandraramirez?igsh=MW80aGhsb2thZmMxag=="
+					target="_blank"
+					class="social-link instagram"
+				>
+					<i class="fab fa-instagram"></i> Instagram
+				</a>
+			</div>
+		</div>
+		<div class="footer-col center-col">
+			<h4>Horario de atención</h4>
+			<p>Lunes a Viernes: 8am a 6pm</p>
+			<p>Sábados: 8am a 12m</p>
+		</div>
+		<div class="footer-col">
+			<h3>Dra. Alejandra Ramirez<br />Consultorio dental</h3>
+			<p><strong>Dirección</strong></p>
+			<p>Junín 4, Cl. 5N # 9-04</p>
+			<p>Piedecuesta, Santander</p>
+
+			<br />
+			<p><a href="https://wa.me/573223413034">322 341 30 34</a></p>
+			<p>contacto@gmail.com</p>
+		</div>
+	</div>
+</footer>
+
+<script is:inline src="/scroll-animations.js"></script>
+<script is:inline src="/comparison-slider.js"></script>

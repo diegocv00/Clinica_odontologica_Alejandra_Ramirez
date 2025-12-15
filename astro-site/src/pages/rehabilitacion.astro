@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Rehabilitación Oral - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">REHABILITACIÓN ORAL</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Restaura la función y estética</h3>
+                <p>
+                    La rehabilitación oral es la parte de la odontología
+                    encargada de la restauración, es decir, devuelve la función
+                    estética y armonía oral mediante prótesis dentales de
+                    perdidas de dientes, grandes destrucciones o de solucionar
+                    problemas estéticos, siempre buscando una oclusión y función
+                    correcta.
+                </p>
+                <p>
+                    Utilizamos coronas de zirconio, carillas y puentes de alta
+                    estética.
+                </p>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/carousel/carousel-2.png"
+                    alt="Rehabilitación Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">
+            TRANSFORMACIONES
+        </h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/rehabilitacion/rehab-before.png"
+            afterImage="/images/carousel/carousel-2.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>

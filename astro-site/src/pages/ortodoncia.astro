@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ComparisonSlider from "../components/ComparisonSlider.astro";
+---
+
+<Layout title="Ortodoncia - Clínica Odontológica">
+    <section class="services-section">
+        <h2 class="section-title">ORTODONCIA</h2>
+        <div class="about-container">
+            <div class="about-text animate-hidden slide-left">
+                <h3>Diseñamos tu sonrisa perfecta</h3>
+                <p>
+                    La ortodoncia es la especialidad encargada de corregir la
+                    posición de los dientes y los huesos maxilares. Unos dientes
+                    bien posicionados no solo mejoran la estética, sino que
+                    garantizan una correcta función masticatoria y facilitan la
+                    higiene bucal.
+                </p>
+                <p>Ofrecemos tratamientos con:</p>
+                <ul>
+                    <li>Brackets metálicos convencionales</li>
+                    <li>Brackets estéticos (Zafiro/Cerámica)</li>
+                    <li>Ortodoncia invisible (Alineadores)</li>
+                </ul>
+            </div>
+            <div class="about-image animate-hidden slide-right">
+                <img
+                    src="/images/treatments/ortodoncia/ortodoncia-after.png"
+                    alt="Ortodoncia Resultado"
+                    style="box-shadow: none; border-radius: 10px;"
+                />
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 50px;">CASOS DE ÉXITO</h3>
+        <ComparisonSlider
+            beforeImage="/images/treatments/ortodoncia/ortodoncia-before.png"
+            afterImage="/images/treatments/ortodoncia/ortodoncia-after.png"
+            beforeLabel="Antes"
+            afterLabel="Después"
+        />
+    </section>
+</Layout>
