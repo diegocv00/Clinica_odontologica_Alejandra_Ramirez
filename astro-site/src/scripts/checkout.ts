@@ -255,6 +255,10 @@ async function renderPaymentStep() {
             redirectUrl.searchParams.append("shipping-address:region", region);
         }
 
+        if (customerData.phone) {
+            redirectUrl.searchParams.append("shipping-address:phone-number", customerData.phone);
+        }
+
         // Add Pay Button
         const btn = document.createElement("button");
         btn.className = "btn-primary";
