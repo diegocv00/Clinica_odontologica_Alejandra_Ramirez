@@ -220,7 +220,10 @@ async function renderPaymentStep() {
 
         // Get items for reference
         const items = cartItems.get();
-        const itemSummary = items.map(i => i.name.substring(0, 15).replace(/\s+/g, '')).join("-");
+        const itemSummary = items.map(i => {
+            const qty = i.quantity > 1 ? `(${i.quantity})` : '';
+            return `${qty}${i.name.substring(0, 15).replace(/\s+/g, '')}`;
+        }).join("-");
         const reference = `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}-${itemSummary}`.substring(0, 255);
 
         // Generate Integrity Signature (SHA256)
