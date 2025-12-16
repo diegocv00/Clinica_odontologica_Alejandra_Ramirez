@@ -212,8 +212,8 @@ async function renderPaymentStep() {
         wompiContainer.innerHTML = "";
 
         // Constants - REPLACE WITH YOUR KEYS
-        const PUBLIC_KEY = "pub_test_Q5yDA9xoKdePzhSGeVe9HAzoz75vKn4f";
-        const INTEGRITY_SECRET = "test_integrity_secret"; // <--- CAMBIAR POR TU SECRETO DE INTEGRIDAD DE PRUEBAS
+        const PUBLIC_KEY = "pub_test_GRGW6Ej5qnteBw7LHodvrTem7DOfDg5R";
+        const INTEGRITY_SECRET = "test_integrity_bFTHYYiuZzZTYUTw6dNW3QfMF1bIUuwy"; // <--- CAMBIAR POR TU SECRETO DE INTEGRIDAD DE PRUEBAS
         const CURRENCY = "COP";
 
         const totalInCents = total * 100;
@@ -231,7 +231,7 @@ async function renderPaymentStep() {
         redirectUrl.searchParams.append("amount-in-cents", totalInCents.toString());
         redirectUrl.searchParams.append("reference", reference);
         redirectUrl.searchParams.append("signature:integrity", signature);
-        redirectUrl.searchParams.append("redirect-url", "http://localhost:4321/respuesta");
+        redirectUrl.searchParams.append("redirect-url", "https://draalejandraramirez.netlify.app/respuesta");
 
         // Customer Data (Optional - check if removing fixes 403 if persists)
         if (customerData.email) redirectUrl.searchParams.append("customer-data:email", customerData.email);
